@@ -10,9 +10,42 @@ import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
 import Image from '@tiptap/extension-image'
 import ImageResize from 'tiptap-extension-resize-image'
+import Underline from '@tiptap/extension-underline'
+
+import { useEditorStore } from '@/store/use-editor-store'
+
+
 
 export const Editor = () => {
+    const {
+        setEditor,
+    } = useEditorStore();
+
     const editor = useEditor({
+        onCreate({ editor }) {
+            setEditor(editor)
+        },
+        onUpdate({ editor }) {
+            setEditor(editor)
+        },
+        onSelectionUpdate({ editor }) {
+            setEditor(editor)
+        },
+        onTransaction({ editor }) {
+            setEditor(editor)
+        },
+        onFocus({ editor }) {
+            setEditor(editor)
+        },
+        onBlur({ editor }) {
+            setEditor(editor)
+        },
+        onContentError({ editor }) {
+            setEditor(editor)
+        },
+        onDestroy() {
+            setEditor(null)
+        },
         editorProps: {
             attributes: {
                 class: 'focus:outline-none print:border-0 bg-white border-[#C7C7C7] flex flex-col min-h-[1054px] w-[800px] py-10 px-14 cursor-text print:w-full print:min-h-0 print:py-0 print:px-0 print:cursor-auto',
@@ -32,6 +65,7 @@ export const Editor = () => {
             TableCell,
             Image,
             ImageResize,
+            Underline
         ],
         content: `
         <table>

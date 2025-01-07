@@ -248,4 +248,13 @@ body {
       outline: 3px solid var(--primary);
     }
   }
+
+  /* Code and preformatted text styles */
+  code {
+    background-color: rgb(225, 224, 224);
+    border-radius: 0.4rem;
+    color: black;
+    font-size: 0.85rem;
+    padding: 0.25em 0.3em;
+  }
 }
