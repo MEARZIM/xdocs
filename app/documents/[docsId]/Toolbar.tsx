@@ -1,53 +1,34 @@
 "use client"
 
 import React from 'react'
-import { 
-    Bold, 
-    Code2Icon, 
-    Italic, 
-    ListTodoIcon, 
-    LucideIcon, 
-    MessageSquarePlusIcon, 
-    PrinterIcon, 
-    Redo2Icon, 
-    SpellCheckIcon, 
-    UnderlineIcon, 
-    Undo2Icon 
+import {
+    Bold,
+    Code2Icon,
+    Italic,
+    ListTodoIcon,
+    LucideIcon,
+    MessageSquarePlusIcon,
+    PrinterIcon,
+    Redo2Icon,
+    RemoveFormattingIcon,
+    SpellCheckIcon,
+    UnderlineIcon,
+    Undo2Icon
 } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
 import { useEditorStore } from '@/store/use-editor-store';
 import { Separator } from '@/components/ui/separator';
+import { FontFamilyButton } from '@/components/tools/FontFamilyButton';
+import { ToolbarButton } from '@/components/tools/ToolbarButton';
+import { HeadingLevelButton } from '@/components/tools/HeadingLevelButton';
 
-interface ToolbarButtonProps {
-    icon: LucideIcon;
-    onClick?: () => void;
-    isActive?: boolean;
-}
 
-export const ToolbarButton = ({
-    icon: Icon,
-    onClick,
-    isActive
-}: ToolbarButtonProps) => {
-    return (
-        <button
-            className={cn(
-                "text-sm min-w-7 flex items-center justify-center h-7 rounded-sm hover:bg-neutral-300/80",
-                isActive && "bg-neutral-300/80"
-            )}
-            onClick={onClick}
-        >
-            <Icon className='size-4' />
-        </button>
-    )
-};
 
 export const Toolbar = () => {
     const {
         editor
     } = useEditorStore();
-    console.log(editor);
+    
     const section: {
         lable: string
         icon: LucideIcon;
@@ -121,7 +102,7 @@ export const Toolbar = () => {
                 {
                     lable: 'Comment',
                     icon: MessageSquarePlusIcon,
-                    onClick: () => {console.log("This is for Comment")},
+                    onClick: () => { console.log("This is for Comment") },
                     isActive: false
                 },
                 {
@@ -130,40 +111,46 @@ export const Toolbar = () => {
                     onClick: () => editor?.chain().focus().toggleTaskList().run(),
                     isActive: editor?.isActive('taskList') ?? false,
                 },
+                {
+                    lable: 'Remove Formating',
+                    icon: RemoveFormattingIcon,
+                    onClick: () => editor?.chain().focus().unsetAllMarks().run(),
+                    isActive: false,
+                },
             ]
         ];
-return (
-    <div className='bg-gray-200 px-2.5 py-0.5 rounded-sm min-h-[40px] flex items-center gap-x-2 overflow-x-auto'>
-        {section[0].map((item) => (
-            <ToolbarButton key={item.lable} {...item} />
-        ))}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {/* TODO: Font Family */}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {/* TODO: Heading */}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {/* TODO: Size */}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {section[1].map((item) => (
-            <ToolbarButton key={item.lable} {...item} />
-        ))}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-       
-        {/* TODO: Link */}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {/* TODO: Image*/}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {/* TODO: Align*/}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {/* TODO: Line Height*/}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {/* TODO: Lists*/}
-        <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-        {section[2].map((item) => (
-            <ToolbarButton key={item.lable} {...item} />
-        ))}
+    return (
+        <div className='bg-gray-200 px-2.5 py-0.5 rounded-sm min-h-[40px] flex items-center gap-x-2 overflow-x-auto'>
+            {section[0].map((item) => (
+                <ToolbarButton key={item.lable} {...item} />
+            ))}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            <FontFamilyButton />
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            <HeadingLevelButton />
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            {/* TODO: Size */}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            {section[1].map((item) => (
+                <ToolbarButton key={item.lable} {...item} />
+            ))}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
 
-    </div>
-)
+            {/* TODO: Link */}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            {/* TODO: Image*/}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            {/* TODO: Align*/}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            {/* TODO: Line Height*/}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            {/* TODO: Lists*/}
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            {section[2].map((item) => (
+                <ToolbarButton key={item.lable} {...item} />
+            ))}
+
+        </div>
+    )
 }
 
