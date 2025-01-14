@@ -21,6 +21,8 @@ import { Separator } from '@/components/ui/separator';
 import { FontFamilyButton } from '@/components/tools/FontFamilyButton';
 import { ToolbarButton } from '@/components/tools/ToolbarButton';
 import { HeadingLevelButton } from '@/components/tools/HeadingLevelButton';
+import { TextColorButton } from '@/components/tools/TextColorButton';
+import { HighlightColorButton } from '@/components/tools/HighlightColorButton';
 
 
 
@@ -28,7 +30,7 @@ export const Toolbar = () => {
     const {
         editor
     } = useEditorStore();
-    
+
     const section: {
         lable: string
         icon: LucideIcon;
@@ -129,13 +131,17 @@ export const Toolbar = () => {
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             <HeadingLevelButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-            {/* TODO: Size */}
+            {/* TODO: Font Size */}
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             {section[1].map((item) => (
                 <ToolbarButton key={item.lable} {...item} />
             ))}
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-
+            <TextColorButton />
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
+            {/* Highlight color */}
+            <HighlightColorButton/>
+            <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             {/* TODO: Link */}
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             {/* TODO: Image*/}
