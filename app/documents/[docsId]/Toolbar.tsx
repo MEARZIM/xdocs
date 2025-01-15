@@ -24,6 +24,7 @@ import { HeadingLevelButton } from '@/components/tools/HeadingLevelButton';
 import { TextColorButton } from '@/components/tools/TextColorButton';
 import { HighlightColorButton } from '@/components/tools/HighlightColorButton';
 import { LinkButton } from '@/components/tools/LinkButton';
+import { ImageButton } from '@/components/tools/ImageButton';
 
 
 
@@ -146,6 +147,7 @@ export const Toolbar = () => {
             <LinkButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             {/* TODO: Image*/}
+            <ImageButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             {/* TODO: Align*/}
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
