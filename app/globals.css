@@ -265,4 +265,14 @@ body {
     box-decoration-break: clone;
     padding: 0.1rem 0.3rem;
   }
+
+  /* Link styles */
+  a {
+    @apply text-blue-600;
+    cursor: pointer;
+
+    &:hover {
+      @apply underline;
+    }
+  }
 }

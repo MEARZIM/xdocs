@@ -3,6 +3,7 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TaskItem from '@tiptap/extension-task-item'
+import Link from '@tiptap/extension-link'
 import TaskList from '@tiptap/extension-task-list'
 import Table from '@tiptap/extension-table'
 import TableCell from '@tiptap/extension-table-cell'
@@ -75,6 +76,12 @@ export const Editor = () => {
             Color,
             Highlight.configure({
                 multicolor: true,
+            }),
+            Link.configure({
+                openOnClick: true,
+                autolink: true,
+                defaultProtocol: 'https',
+                protocols: ['http', 'https'],
             }),
         ],
         content: `
