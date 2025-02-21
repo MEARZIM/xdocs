@@ -25,6 +25,8 @@ import { TextColorButton } from '@/components/tools/TextColorButton';
 import { HighlightColorButton } from '@/components/tools/HighlightColorButton';
 import { LinkButton } from '@/components/tools/LinkButton';
 import { ImageButton } from '@/components/tools/ImageButton';
+import { AlignButton } from '@/components/tools/AlignButton';
+import { ListButton } from '@/components/tools/ListButton';
 
 
 
@@ -143,17 +145,19 @@ export const Toolbar = () => {
             <TextColorButton />
             {/* Highlight color */}
             <HighlightColorButton />
-            {/* TODO: Link */}
+            {/*Link */}
             <LinkButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-            {/* TODO: Image*/}
+            {/*Image*/}
             <ImageButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-            {/* TODO: Align*/}
+            {/*Align*/}
+            <AlignButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             {/* TODO: Line Height*/}
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-            {/* TODO: Lists*/}
+            {/*Lists*/}
+            <ListButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             {section[2].map((item) => (
                 <ToolbarButton key={item.lable} {...item} />
