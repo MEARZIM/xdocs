@@ -28,6 +28,7 @@ import { ImageButton } from '@/components/tools/ImageButton';
 import { AlignButton } from '@/components/tools/AlignButton';
 import { ListButton } from '@/components/tools/ListButton';
 import { FontSizeButton } from '@/components/tools/FontSizeButton';
+import { LineHeightButton } from '@/components/tools/LineHeightButton';
 
 
 
@@ -156,7 +157,8 @@ export const Toolbar = () => {
             {/*Align*/}
             <AlignButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
-            {/* TODO: Line Height*/}
+            {/*Line Height*/}
+            <LineHeightButton />
             <Separator orientation='vertical' className='h-6 bg-neutral-300' />
             {/*Lists*/}
             <ListButton />
