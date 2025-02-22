@@ -154,17 +154,17 @@ const Marker = ({
                 onDoubleClick={onDoubleClick}
             >
                 <ChevronDown className="absolute left-1/2 top-0 h-full fill-blue-400 tranform -translate-x-1/2" color="blue" />
-                <div 
-                className="absolute left-1/2 top-4 transform -translate-x-2"
-                style={{
-                    height: "100vh",
-                    width: "1px",
-                    transform: "scaleX(0.5",
-                    backgroundColor: "blue",
-                    display: isDragging ? "block" : "none",
-                }}
-                 />
-                
+                <div
+                    className="absolute left-1/2 top-4 transform -translate-x-2"
+                    style={{
+                        height: "100vh",
+                        width: "1px",
+                        transform: "scaleX(0.5",
+                        backgroundColor: "blue",
+                        display: isDragging ? "block" : "none",
+                    }}
+                />
+
             </div>
         </>
     )
