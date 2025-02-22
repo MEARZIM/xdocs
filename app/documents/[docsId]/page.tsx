@@ -14,7 +14,7 @@ const SingleDocsPage = async ({
 
     return (
         <div className='min-h-screen bg-gray-100'>
-            <Toolbar/>
+            <Toolbar />
             <Editor />
         </div>
     )
